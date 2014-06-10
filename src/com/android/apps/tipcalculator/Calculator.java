@@ -19,6 +19,7 @@ public class Calculator extends Activity {
 	TextView txtTotalValue;
 	TextView txtSplitValue;
 	TextView txtTipPercentage;
+	TextView txtSplitAmount;
 	double tipPercentage=15;
 	int split=1;
 	
@@ -102,11 +103,10 @@ public class Calculator extends Activity {
 		etBillAmount = (EditText)findViewById(R.id.edtBillAmount);
 		txtTipValue = (TextView)findViewById(R.id.txtTipValue);
 		txtTotalValue = (TextView)findViewById(R.id.txtTotalValue);
-		//etSplit = (EditText)findViewById(R.id.edtSplit);
-		//txtSplitValue = (TextView)findViewById(R.id.txtSplitValue);
+		txtSplitAmount = (TextView)findViewById(R.id.txtSplitAmount);
 		
 		double billAmount = Double.parseDouble(etBillAmount.getText().toString());
-		//int splitInto = 1; 
+		
 		
 		double tip_percent = tipPercentage/100;
 		double tip = (double)(billAmount*tip_percent);
@@ -116,7 +116,7 @@ public class Calculator extends Activity {
 		
 		txtTipValue.setText("$" + tip);
 		txtTotalValue.setText("$" + totalAmount);
-//		txtSplitValue.setText("$" + splitValue);
+		txtSplitAmount.setText("$" + splitValue);
 	
 		
 	

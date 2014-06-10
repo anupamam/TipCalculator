@@ -122,6 +122,22 @@
          android:layout_alignParentRight="true"
          android:layout_below="@+id/txtTipPercentage"
          android:text="1" />
-         
+
+     <TextView
+         android:id="@+id/txtSplitAmount"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBottom="@+id/txtSplitLabel"
+         android:layout_alignLeft="@+id/txtTotalValue"
+          />
+
+     <TextView
+         android:id="@+id/txtSplitLabel"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_below="@+id/txtSplit"
+         android:layout_marginTop="17dp"
+         android:text="@string/split_amount" />
 
 </RelativeLayout>
