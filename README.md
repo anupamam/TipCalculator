@@ -1,0 +1,4 @@
+TipCalculator
+=============
+
+Android Tip Calculator
