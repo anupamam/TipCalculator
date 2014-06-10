@@ -17,10 +17,10 @@ public class Calculator extends Activity {
 	EditText etBillAmount;
 	TextView txtTipValue;
 	TextView txtTotalValue;
-	EditText etSplit;
 	TextView txtSplitValue;
 	TextView txtTipPercentage;
-	
+	double tipPercentage=15;
+	int split=1;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,7 @@ public class Calculator extends Activity {
 		int index = etBillAmount.getText().toString().length();
 		etBillAmount.setSelection(index);
 		etBillAmount.setFocusable(true);
-		//etSplit = (EditText)findViewById(R.id.edtSplit);
+		txtSplitValue = (TextView)findViewById(R.id.txtSplitValue);
 		txtTipPercentage = (TextView)findViewById(R.id.txtTipPercentage);
 		
 		SeekBar seekTipPercentage = (SeekBar)findViewById(R.id.seekTipPercentage);
@@ -40,8 +40,37 @@ public class Calculator extends Activity {
 			public void onProgressChanged(SeekBar seekBar, int progress,
 					boolean fromUser) {
 				// TODO Auto-generated method stub
+				txtTipPercentage = (TextView)findViewById(R.id.txtTipPercentage);
 				txtTipPercentage.setText(progress + "% ");
-				tipCalculator((double)progress);
+				tipPercentage = (double)progress;
+				tipCalculator();
+			}
+
+			@Override
+			public void onStartTrackingTouch(SeekBar seekBar) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void onStopTrackingTouch(SeekBar seekBar) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+		
+		SeekBar seekSplit =  (SeekBar)findViewById(R.id.seekSplit);
+		seekSplit.setOnSeekBarChangeListener(new OnSeekBarChangeListener(){
+
+			@Override
+			public void onProgressChanged(SeekBar seekBar, int progress,
+					boolean fromUser) {
+				// TODO Auto-generated method stub
+				txtSplitValue = (TextView)findViewById(R.id.txtSplitValue);
+				txtSplitValue.setText(progress+"");
+				split = progress;
+				tipCalculator();
 			}
 
 			@Override
@@ -62,36 +91,14 @@ public class Calculator extends Activity {
 	}
 	
 	
-	private void setupListViewListener(){
-		etBillAmount.addTextChangedListener(new TextWatcher() {
-			
-			@Override
-			public void onTextChanged(CharSequence s, int start, int before, int count) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void beforeTextChanged(CharSequence s, int start, int count,
-					int after) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void afterTextChanged(Editable s) {
-				// TODO Auto-generated method stub
-				//tipCalculator();
-				
-			}
-		});
-	}
+	
 	
 	public void calculateTip(View v){
-		tipCalculator(10);
+		//tipCalculator(10);
 	}
 	
-	public void tipCalculator(double tipPercentage){
+	//public void tipCalculator(double tipPercentage){
+	public void tipCalculator(){
 		etBillAmount = (EditText)findViewById(R.id.edtBillAmount);
 		txtTipValue = (TextView)findViewById(R.id.txtTipValue);
 		txtTotalValue = (TextView)findViewById(R.id.txtTotalValue);
@@ -99,12 +106,12 @@ public class Calculator extends Activity {
 		//txtSplitValue = (TextView)findViewById(R.id.txtSplitValue);
 		
 		double billAmount = Double.parseDouble(etBillAmount.getText().toString());
-		int splitInto = 1; 
+		//int splitInto = 1; 
 		
 		double tip_percent = tipPercentage/100;
 		double tip = (double)(billAmount*tip_percent);
 		double totalAmount = billAmount + tip;
-		double splitValue = (double)totalAmount/splitInto;
+		double splitValue = (double)totalAmount/split;
 		
 		
 		txtTipValue.setText("$" + tip);

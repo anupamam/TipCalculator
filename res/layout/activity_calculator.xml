@@ -90,6 +90,38 @@
          android:layout_alignBottom="@+id/seekTipPercentage"
          android:layout_alignParentRight="true"
          android:layout_below="@+id/txtTotalValue"
-         android:text="5%" />
+         android:text="10%" />
     
+     <TextView
+         android:id="@+id/txtSplit"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_below="@+id/txtTip"
+         android:layout_marginTop="18dp"
+         android:text="@string/split" />
+     
+     <SeekBar
+         android:id="@+id/seekSplit"
+         android:layout_width="200dp"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/seekTipPercentage"
+         android:layout_alignBottom="@+id/txtSplit"
+         android:layout_alignLeft="@+id/seekTipPercentage"
+         android:layout_alignRight="@+id/seekTipPercentage"
+    	 android:layout_toRightOf="@+id/txtTotal"
+    	 android:progress="1"/>
+
+     
+     
+     <TextView
+         android:id="@+id/txtSplitValue"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBottom="@+id/seekSplit"
+         android:layout_alignParentRight="true"
+         android:layout_below="@+id/txtTipPercentage"
+         android:text="1" />
+         
+
 </RelativeLayout>
