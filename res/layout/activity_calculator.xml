@@ -1,0 +1,95 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${packageName}.${activityClass}" >
+
+    <TextView
+        android:id="@+id/txtBillAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignBottom="@+id/edtBillAmount"
+        android:layout_alignParentTop="true"
+        android:text="@string/bill_amount" />
+
+    <EditText
+        android:id="@+id/edtBillAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="60dp"
+        android:layout_toRightOf="@+id/txtBillAmount"
+        android:inputType="numberDecimal"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/txtTipAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/txtBillAmount"
+        android:layout_below="@+id/txtBillAmount"
+        android:text="@string/tip" />
+       
+    <TextView
+        android:id="@+id/txtTipValue"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_above="@+id/txtTotalValue"
+        android:layout_alignLeft="@+id/edtBillAmount"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/txtTipAmount"
+        android:layout_below="@+id/edtBillAmount"
+        />
+    
+    <TextView
+        android:id="@+id/txtTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/txtTipAmount"
+        android:layout_toLeftOf="@+id/edtBillAmount"
+        android:text="@string/total" />
+
+    <TextView
+        android:id="@+id/txtTotalValue"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignLeft="@+id/edtBillAmount"
+        android:layout_alignParentRight="true"
+        android:layout_alignBottom="@+id/txtTotal"
+        android:layout_alignTop="@+id/txtTotal"
+       />
+   
+     
+      <TextView
+         android:id="@+id/txtTip"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBottom="@+id/seekTipPercentage"
+         android:layout_alignParentLeft="true"
+         android:layout_alignTop="@+id/seekTipPercentage"
+         android:text="@string/tip_percentage" />
+
+     <SeekBar
+         android:id="@+id/seekTipPercentage"
+         android:layout_width="200dp"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/txtTotalValue"
+         android:layout_toRightOf="@+id/txtTotal"
+         android:progress="10" />
+
+     <TextView
+         android:id="@+id/txtTipPercentage"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBottom="@+id/seekTipPercentage"
+         android:layout_alignParentRight="true"
+         android:layout_below="@+id/txtTotalValue"
+         android:text="5%" />
+    
+</RelativeLayout>
